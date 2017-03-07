@@ -1,0 +1,41 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Template Driven Form</h1>
+    <form *ngIf="active">
+
+      <div>
+        <label for="userName">Urname</label>
+        <input type="text" id="userName" class="form-control" required minlength="5" maxlength="20">
+
+        <div *ngIf="(name.dirty || name.touched)"
+             class="alert alert-danger">
+            <div [hidden]="!name.errors.required">
+              Name is required
+            </div>
+            <div [hidden]="!name.errors.minlength">
+              Name must be at least 4 characters long.
+            </div>
+            <div [hidden]="!name.errors.maxlength">
+              Name cannot be more than 24 characters long.
+            </div>
+        </div>
+
+      </div>
+      
+      <div>
+        <label for="Location">location</label>
+        <input type="text" id="location" class="form-control" required minlength="5" maxlength="20">
+      </div>
+      
+      <div>
+        <label for="Language">language</label>
+        <input type="text" id="lunguage" class="form-control" required minlength="5" maxlength="20">
+      </div>
+    <div class="button">
+        <button type="submit" class="btn btn-default" [disabled]="!templateForm.form.valid">Submit</button>
+    </div>
+    </form>
+   
+  </div>
+
+</div>
